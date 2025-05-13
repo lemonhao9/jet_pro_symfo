@@ -137,7 +137,7 @@ final class RestaurantController extends AbstractController
     ],
     responses: [
         new OA\Response(
-            response: 204,
+            response: 201,
             description: "Restaurant modifié avec succès",
             content: new OA\JsonContent(
                 type: "object",

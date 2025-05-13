@@ -79,7 +79,7 @@ final class FoodController extends AbstractController
             name: "id",
             in: "path",
             required: true,
-            description: "ID du plat à afficher",
+            description: "ID du plat à chier",
             schema: new OA\Schema(type: "integer")
         )
     ],

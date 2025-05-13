@@ -41,6 +41,7 @@ final class CategoryController extends AbstractController
                 properties: [
                     new OA\Property(property: "id", type: "integer", example: 1),
                     new OA\Property(property: "name", type: "string", example: "Nom de la catégorie"),
+                    new OA\Property(property: "description", type: "string", example: "Description de la catégorie"),
                     new OA\Property(property: "createdAt", type: "string", format: "date-time")
                 ]
             )
@@ -89,6 +90,7 @@ final class CategoryController extends AbstractController
                 properties: [
                     new OA\Property(property: "id", type: "integer", example: 1),
                     new OA\Property(property: "name", type: "string", example: "Nom du restaurant"),
+                    new OA\Property(property: "description", type: "string", example: "Description du restaurant"),
                     new OA\Property(property: "createdAt", type: "string", format: "date-time")
                 ]
             )
@@ -134,6 +136,7 @@ final class CategoryController extends AbstractController
                 properties: [
                     new OA\Property(property: "id", type: "integer", example: 1),
                     new OA\Property(property: "name", type: "string", example: "Nouveau nom du restaurant"),
+                    new OA\Property(property: "description", type: "string", example: "Nouvelle description du restaurant"),
                     new OA\Property(property: "updatedAt", type: "string", format: "date-time")
                 ]
             )
@@ -180,6 +183,7 @@ final class CategoryController extends AbstractController
                 properties: [
                     new OA\Property(property: "id", type: "integer", example: 1),
                     new OA\Property(property: "name", type: "string", example: "Nom du restaurant"),
+                    new OA\Property(property: "description", type: "string", example: "Description du restaurant"),
                     new OA\Property(property: "updatedAt", type: "string", format: "date-time")
                 ]
             )

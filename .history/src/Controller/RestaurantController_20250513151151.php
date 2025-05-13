@@ -25,7 +25,7 @@ final class RestaurantController extends AbstractController
         
     }
     #[Route(methods:'POST')]
-    #[OA\Post(
+    #[OA\POST(
     path: "/api/restaurant",
     summary: "Créer un restaurant",
     parameters: [
@@ -53,7 +53,7 @@ final class RestaurantController extends AbstractController
         ),
         new OA\Response(
             response: 404,
-            description: "Restaurant non créé"
+            description: "Restaurant non trouvé"
         )
     ]
 )]
@@ -123,38 +123,6 @@ final class RestaurantController extends AbstractController
     }
 
     #[Route('/{id}', name: 'edit', methods: 'PUT')]
-   #[OA\Put(
-    path: "/api/restaurant/{id}",
-    summary: "Modifier un restaurant par ID",
-    parameters: [
-        new OA\Parameter(
-            name: "id",
-            in: "path",
-            required: true,
-            description: "ID du restaurant à modifier",
-            schema: new OA\Schema(type: "integer")
-        )
-    ],
-    responses: [
-        new OA\Response(
-            response: 204,
-            description: "Restaurant modifié avec succès",
-            content: new OA\JsonContent(
-                type: "object",
-                properties: [
-                    new OA\Property(property: "id", type: "integer", example: 1),
-                    new OA\Property(property: "name", type: "string", example: "Nouveau nom du restaurant"),
-                    new OA\Property(property: "description", type: "string", example: "Nouvelle description du restaurant"),
-                    new OA\Property(property: "updatedAt", type: "string", format: "date-time")
-                ]
-            )
-        ),
-        new OA\Response(
-            response: 404,
-            description: "Restaurant non trouvé"
-        )
-    ]
-)]
     public function edit(int $id, Request $request): JsonResponse
     {
         $restaurant = $this->repository->findOneBy(['id' => $id]);
@@ -176,38 +144,6 @@ final class RestaurantController extends AbstractController
     }
 
     #[Route('/{id}', name: 'delete', methods: 'DELETE')]
-   #[OA\Delete(
-    path: "/api/restaurant/{id}",
-    summary: "Supprimer un restaurant par ID",
-    parameters: [
-        new OA\Parameter(
-            name: "id",
-            in: "path",
-            required: true,
-            description: "ID du restaurant à supprimer",
-            schema: new OA\Schema(type: "integer")
-        )
-    ],
-    responses: [
-        new OA\Response(
-            response: 200,
-            description: "Restaurant supprimé avec succès",
-            content: new OA\JsonContent(
-                type: "object",
-                properties: [
-                    new OA\Property(property: "id", type: "integer", example: 1),
-                    new OA\Property(property: "name", type: "string", example: "Nom du restaurant"),
-                    new OA\Property(property: "description", type: "string", example: "Description du restaurant"),
-                    new OA\Property(property: "updatedAt", type: "string", format: "date-time")
-                ]
-            )
-        ),
-        new OA\Response(
-            response: 404,
-            description: "Restaurant non supprimé"
-        )
-    ]
-)]
     public function delete(int $id): JsonResponse
     {
         $restaurant = $this->repository->findOneBy(['id' => $id]);
